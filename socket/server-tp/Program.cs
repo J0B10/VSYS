@@ -20,7 +20,9 @@ s.Listen(20);
 while (true) {
     Socket cl = s.Accept();
 
-    (new Thread(o=>{
+    ThreadPool.SetMaxThreads(5, 5);
+    ThreadPool.SetMinThreads(5, 5);
+    ThreadPool.QueueUserWorkItem(o=>{
         using (NetworkStream ns = new(cl))
         using (StreamReader rd = new(ns))
         using (StreamWriter wr = new(ns))
@@ -32,6 +34,6 @@ while (true) {
         }
         cl.Close();
 
-    })).Start();
+    });
 
 }

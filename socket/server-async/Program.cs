@@ -20,18 +20,19 @@ s.Listen(20);
 while (true) {
     Socket cl = s.Accept();
 
-    (new Thread(o=>{
+    Task.Run(async ()=>{
         using (NetworkStream ns = new(cl))
         using (StreamReader rd = new(ns))
         using (StreamWriter wr = new(ns))
         {
             String request = rd.ReadLine()??"";
-            Thread.Sleep(1000);
-            wr.WriteLine(DateTime.Now.ToString());
-            wr.Flush();
+            // Thread.Sleep(1000);
+            await Task.Delay(1000);
+            await wr.WriteLineAsync(DateTime.Now.ToString());
+            await wr.FlushAsync();
         }
         cl.Close();
 
-    })).Start();
+    });
 
 }
