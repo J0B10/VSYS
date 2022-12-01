@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="data">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" name="person">
+          <complexType>
+            <sequence>
+              <element name="name">
+                <simpleType>
+                  <restriction base="string">
+                    <pattern value="[A-Z][a-z]*"></pattern>
+                  </restriction>
+                </simpleType>
+              </element>
+              <element name="alter">
+                <simpleType>
+                  <restriction base="integer">
+                    <minInclusive value="0"/>
+                    <maxInclusive value="120"/>
+                  </restriction>
+                </simpleType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <person id="100">
+        <name>Hans</name>
+        <alter>12</alter>
+        <phone>
+            <tel type="mobil">017227346475</tel>
+            <tel type="private">073122727272</tel>
+        </phone>
+    </person>
+    <person id="102">
+        <name>Petra</name>
+        <alter>14</alter>
+    </person>
+    <person>
+        <name>Test</name>
+        <alter>70</alter>
+    </person>
+</data>
