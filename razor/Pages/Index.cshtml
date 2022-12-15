@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome VSYS</h1>
+</div>
+
+<div>
+    <p>Uhrzeit = <span id="uhr">...</span></p>
+</div>
+
+<div>
+    <p>Message = @Model.Message</p>
+    <p>Text = @Model.Text</p>
+</div>
+
+<div>
+    <form asp-page-handler="Edit" method="post">
+        <input type="text" size="32" name="Message" value="@Model.Message"><br/>
+        <input type="text" size="32" name="Text"><br/>
+        <input type="submit" value="senden">
+    </form>
+</div>

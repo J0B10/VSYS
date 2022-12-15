@@ -1,0 +1,11 @@
+@page
+@model StateModel
+
+<div>
+    <p>Anzahl der Clicks = <b>@Model.Nr</b></p>
+</div>
+
+<form method="post">
+        <button class="btn btn-primary">click me</button>
+        <input type="hidden" name="Nr" value="@Model.Nr" />
+</form>
