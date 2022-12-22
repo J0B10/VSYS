@@ -8,6 +8,11 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     public String Message { get; set; } = "Demo Text";
     public IMessage Msg { get; }
+    
+    [BindProperty(SupportsGet = true)]
+    public int a { get; set; }
+    [BindProperty(SupportsGet = true)]
+    public int b { get; set; }
 
     public IndexModel(ILogger<IndexModel> logger, IMessage msg)
     {
@@ -15,8 +20,10 @@ public class IndexModel : PageModel
         Msg = msg;
     }
 
-    public void OnGet()
+    public void OnGet(/*int a, int b*/)
     {
-        Message = Msg.getMessage();
+        // this.a = a;
+        // this.b = b;
+        Message = $"Summe = {a+b}";
     }
 }
