@@ -7,6 +7,7 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     public String Message { get; set; } = "Demo Text";
+    public String Summe { get; set; } = "";
     public IMessage Msg { get; }
     
     [BindProperty(SupportsGet = true)]
@@ -24,6 +25,7 @@ public class IndexModel : PageModel
     {
         // this.a = a;
         // this.b = b;
-        Message = $"Summe = {a+b}";
+        Summe = $"Summe = {a+b}";
+        Message = Msg.getMessage();
     }
 }
