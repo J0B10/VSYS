@@ -13,7 +13,8 @@ public class MessageModel : PageModel
         Msg = msg;
     }
 
-    public void OnGet()
+    public IActionResult OnGet()
     {
+        return new JsonResult(new {message=Msg.getMessage()});
     }
 }
